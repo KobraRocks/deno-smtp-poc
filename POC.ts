@@ -24,10 +24,10 @@ const server = await SmtpConnection.open({ authOptions: config.authOptions });
 
 if ( server.code === 235 ) {
     await SmtpConnection.sendEmail({
-        from:'buddy@kobra.rocks',
-        to:'me@kobra.rocks',
-        subject: `SMTP Deno test ${Date.now()}`,
-        body: 'this is a success'
+        from: config.emailOptions.from,
+        to: config.emailOptions.to,
+        subject: `SMTP Deno POC test ${Date.now()}`,
+        body:config.emailOptions.body
     });
 }
 
